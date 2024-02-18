@@ -2,7 +2,7 @@
 select * from customer where customer_id is null;
 select * from transaction where customer_id is null;
 
--- Проверим, есть ли  исходные данные на наличие пропусков по ключевым значениям
+-- Проверим, исходные данные на наличие пропусков по ключевым значениям
 select t.*
 from transaction t
 left join customer c on  t.customer_id = c.customer_id
