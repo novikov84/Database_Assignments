@@ -1,3 +1,27 @@
+-- Проверяем исходные данные на наличие пропусков по ключевым значениям
+select * from customer where customer_id is null;
+select * from transaction where customer_id is null;
+
+-- Проверим, есть ли  исходные данные на наличие пропусков по ключевым значениям
+select t.*
+from transaction t
+left join customer c on  t.customer_id = c.customer_id
+where c.customer_id is null;
+-- Есть проблема с customer_id 5034, его нет в таблице customer, а в transaction для него есть три транзакции
+
+-- проверим, есть ли дубликаты в таблице с клиентами
+select customer_id, count(*) as cnt
+FROM customer
+GROUP BY customer_id
+HAVING count(*) > 1;
+
+-- проверим, есть ли дубликаты в таблице с транзакциями.
+select transaction_id, count(*) as cnt
+FROM transaction
+GROUP BY transaction_id
+HAVING count(*) > 1;
+
+
 -- Вывести все уникальные бренды, у которых стандартная стоимость выше 1500 долларов.
 select distinct brand
 from transaction
