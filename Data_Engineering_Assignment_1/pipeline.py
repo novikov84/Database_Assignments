@@ -17,8 +17,7 @@ class DownloadDataset(luigi.Task):
 
     def run(self):
         os.makedirs(self.dataset_name, exist_ok=True)
-        # It is not clear from the assignment which part of the link can be hardcoded. 
-        # I decided that it will be the link to NCBI, and the name of the dataset is given as parameter:
+        # No need to parse the page, all files in GEO can be accessed by the same link with only name of dataset being different:
         url = f"https://www.ncbi.nlm.nih.gov/geo/download/?acc={self.dataset_name}&format=file"
         tar_path = self.output().path
         wget.download(url, tar_path)
