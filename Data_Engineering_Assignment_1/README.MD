@@ -26,6 +26,6 @@ python ./pipeline.py Cleanup --dataset-name GSE68849 --local-scheduler
 
 ## Results of script
 
-[In folder](Data_Engineering_Assignment_1/GSE68849) 
+[In folder](GSE68849) 
 
-[As an archive](Data_Engineering_Assignment_1/GSE68849.zip)
+[As an archive](GSE68849.zip)
